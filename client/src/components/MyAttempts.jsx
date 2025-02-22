@@ -14,7 +14,7 @@ export default function MyAttempts() {
     const fetchAttempts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/quiz/attempts/my",
+          "https://dacoid-4wwu.onrender.com/api/quiz/attempts/my",
           { withCredentials: true }
         );
         setAttempts(response.data.attempts);

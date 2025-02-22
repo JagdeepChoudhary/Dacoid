@@ -16,7 +16,7 @@ export default function ViewAttempt() {
     const fetchAttemptDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/quiz/attempt/${attemptId}`,
+          `https://dacoid-4wwu.onrender.com/api/quiz/attempt/${attemptId}`,
           { withCredentials: true }
         );
         setAttemptData(response.data.attempt);

@@ -13,9 +13,12 @@ export default function Home() {
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/quiz", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://dacoid-4wwu.onrender.com/api/quiz",
+          {
+            withCredentials: true,
+          }
+        );
 
         setQuizzes(
           Array.isArray(response.data.quizzes) ? response.data.quizzes : []

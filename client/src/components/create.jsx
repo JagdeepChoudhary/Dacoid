@@ -79,7 +79,7 @@ export default function CreateQuiz() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/quiz/create",
+        "https://dacoid-4wwu.onrender.com/api/quiz/create",
         quizData,
         {
           headers: {

@@ -39,7 +39,7 @@ export default function Quiz() {
     const fetchQuiz = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/quiz/${id}`,
+          `https://dacoid-4wwu.onrender.com/api/quiz/${id}`,
           {
             withCredentials: true,
           }
@@ -137,9 +137,13 @@ export default function Quiz() {
         score: score,
       };
 
-      await axios.post("http://localhost:8000/api/quiz/attempt", attemptData, {
-        withCredentials: true,
-      });
+      await axios.post(
+        "https://dacoid-4wwu.onrender.com/api/quiz/attempt",
+        attemptData,
+        {
+          withCredentials: true,
+        }
+      );
 
       toast.success("Attempt saved successfully!");
     } catch (error) {
@@ -187,19 +191,20 @@ export default function Quiz() {
             currentQuestion.options.map((option, index) => (
               <Button
                 key={option._id}
-                variant={
-                  isAnswerRevealed
-                    ? index === currentQuestion.answer
-                      ? "success"
-                      : selectedAnswers[currentQuestionIndex]?.answer ===
-                        option.option
-                      ? "destructive"
-                      : "outline"
-                    : "outline"
-                }
                 onClick={() => handleAnswer(index)}
                 disabled={isAnswerRevealed}
-                className="text-left h-auto py-4"
+                className={`
+                  text-left h-auto py-4
+                  ${
+                    isAnswerRevealed
+                      ? index === currentQuestion.answer
+                        ? "bg-green-500" // Green for correct answer
+                        : selectedAnswers[currentQuestionIndex] === index
+                        ? "bg-red-500" // Red for incorrect answer
+                        : "" // Default outline
+                      : "bg-outline" // Default outline
+                  }
+                `}
               >
                 {option.option}
               </Button>

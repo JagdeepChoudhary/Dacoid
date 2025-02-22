@@ -5,8 +5,7 @@ import { toast } from "sonner";
 
 // Protected Route Handling
 const ProtectedRoute = () => {
-  const isAuthenticated = document.cookie.includes("token="); // Check if the auth token exists in cookies
-
+  const isAuthenticated = document.cookie.includes("token=");
   if (!isAuthenticated) {
     toast.error("Please log in to access this page.");
     return <Navigate to="/auth" replace />;
