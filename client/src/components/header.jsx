@@ -22,7 +22,7 @@ export default function Header() {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:8000/api/auth/logout", {
+      await axios.get("https://dacoid-4wwu.onrender.com/api/auth/logout", {
         withCredentials: true,
       });
       navigate("/auth"); // Redirect to the login page

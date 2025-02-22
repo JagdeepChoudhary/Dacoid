@@ -38,7 +38,7 @@ const AuthPage = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/auth/login",
+        "https://dacoid-4wwu.onrender.com/api/auth/login",
         {
           email: formData.email,
           password: formData.password,
@@ -70,7 +70,7 @@ const AuthPage = () => {
     setLoading(true);
     try {
       await axios.post(
-        "http://localhost:8000/api/auth/register",
+        "https://dacoid-4wwu.onrender.com/api/auth/register",
         {
           name: formData.name,
           email: formData.email,

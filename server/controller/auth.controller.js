@@ -48,7 +48,12 @@ export const register = [
             );
 
             return res.status(201)
-                .cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' })
+                .cookie('token', token, {
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === 'production', // 
+                    sameSite: 'None',
+                    path: '/',
+                })
                 .json({
                     message: "Account created successfully.",
                     success: true,
@@ -101,7 +106,12 @@ export const login = [
             };
 
             res.status(200)
-                .cookie('token', token)
+                .cookie('token', token, {
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === 'production', // 
+                    sameSite: 'None',
+                    path: '/',
+                })
                 .json({
                     message: `Welcome back ${user.name}.`,
                     success: true,
@@ -118,7 +128,12 @@ export const login = [
 export const logout = async (req, res) => {
     try {
         return res.status(200)
-            .clearCookie("token", "")
+            .clearCookie("token", "", {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production', // 
+                sameSite: 'None',
+                path: '/',
+            })
             .json({
                 success: true,
                 message: "Logged out successfully",

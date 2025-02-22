@@ -14,7 +14,7 @@ export default function MyCreatedTests() {
     const fetchQuizzes = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/quiz/myquizzes",
+          "https://dacoid-4wwu.onrender.com/api/quiz/myquizzes",
           { withCredentials: true }
         );
         setQuizzes(response.data.quizzes);
@@ -30,9 +30,12 @@ export default function MyCreatedTests() {
   //  Handle Delete Quiz
   const handleDelete = async (quizId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/quiz/${quizId}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `hhttps://dacoid-4wwu.onrender.com/api/quiz/${quizId}`,
+        {
+          withCredentials: true,
+        }
+      );
       setQuizzes((prev) => prev.filter((quiz) => quiz._id !== quizId));
       toast.success("Quiz deleted successfully.");
     } catch (error) {
