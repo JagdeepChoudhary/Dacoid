@@ -1,0 +1,4 @@
+JWT_SECRET = your jwt secret
+MONGO_URI="your mongo uri"
+SALT= your salt
+PORT=PORT
